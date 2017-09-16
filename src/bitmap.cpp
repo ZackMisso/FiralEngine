@@ -1,4 +1,4 @@
-#include "bitmap.h"
+#include <firal/bitmap.h>
 
 BMP_BITMAPFILEHEADER bmfh;
 BMP_BITMAPINFOHEADER bmih;

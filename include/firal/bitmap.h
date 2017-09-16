@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include <cstring>
-// #include <firal/include/common.h>
-#include "../include/common.h"
+#include <firal/common.h>
 
 #define BMP_BI_RGB 0L
 
@@ -34,10 +33,10 @@ typedef struct {
 	BMP_DWORD biClrImportant;
 } BMP_BITMAPINFOHEADER;
 
-// FIRAL_NAMESPACE_BEGIN
+FIRAL_NAMESPACE_BEGIN
 // I/O routines
 
 extern unsigned char *readBMP(const char* fileName,int& width,int& height);
 extern void writeBMP(const char *iname,int width,int height,unsigned char *data);
 
-// FIRAL_NAMESPACE_END
+FIRAL_NAMESPACE_END

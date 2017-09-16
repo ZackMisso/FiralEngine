@@ -1,5 +1,5 @@
 // #include <iostream>
-// // #include <firal/io/bitmap.h>
+#include <firal/bitmap.h>
 // #include "io/bitmap.h"
 //
 // // FIRAL_NAMESPACE_BEGIN
@@ -247,61 +247,61 @@ public:
             dlg->setCallback([](int result) { cout << "Dialog result: " << result << endl; });
         });
 
-        // vector<pair<int, string>>
-        //     icons = loadImageDirectory(mNVGContext, "icons");
-        // #if defined(_WIN32)
-        //     string resourcesFolderPath("../ext/nanogui/resources/");
-        // #else
-        //     string resourcesFolderPath("./");
-        // #endif
+        vector<pair<int, string>>
+            icons = loadImageDirectory(mNVGContext, "/home/firal/Documents/Hobbies/FiralEngine/ext/nanogui/resources/icons");
+        #if defined(_WIN32)
+            string resourcesFolderPath("../resources/");
+        #else
+            string resourcesFolderPath("");
+        #endif
 
-        // new Label(window, "Image panel & scroll panel", "sans-bold");
-        // PopupButton *imagePanelBtn = new PopupButton(window, "Image Panel");
-        // imagePanelBtn->setIcon(ENTYPO_ICON_FOLDER);
-        // popup = imagePanelBtn->popup();
-        // VScrollPanel *vscroll = new VScrollPanel(popup);
-        // ImagePanel *imgPanel = new ImagePanel(vscroll);
-        // imgPanel->setImages(icons);
-        // popup->setFixedSize(Vector2i(245, 150));
-        //
-        // auto imageWindow = new Window(this, "Selected image");
-        // imageWindow->setPosition(Vector2i(710, 15));
-        // imageWindow->setLayout(new GroupLayout());
-        //
-        // // Load all of the images by creating a GLTexture object and saving the pixel data.
-        // for (auto& icon : icons) {
-        //     GLTexture texture(icon.second);
-        //     auto data = texture.load(resourcesFolderPath + icon.second + ".png");
-        //     mImagesData.emplace_back(std::move(texture), std::move(data));
-        // }
+        new Label(window, "Image panel & scroll panel", "sans-bold");
+        PopupButton *imagePanelBtn = new PopupButton(window, "Image Panel");
+        imagePanelBtn->setIcon(ENTYPO_ICON_FOLDER);
+        popup = imagePanelBtn->popup();
+        VScrollPanel *vscroll = new VScrollPanel(popup);
+        ImagePanel *imgPanel = new ImagePanel(vscroll);
+        imgPanel->setImages(icons);
+        popup->setFixedSize(Vector2i(245, 150));
+
+        auto imageWindow = new Window(this, "Selected image");
+        imageWindow->setPosition(Vector2i(710, 15));
+        imageWindow->setLayout(new GroupLayout());
+
+        // Load all of the images by creating a GLTexture object and saving the pixel data.
+        for (auto& icon : icons) {
+            GLTexture texture(icon.second);
+            auto data = texture.load(resourcesFolderPath + icon.second + ".png");
+            mImagesData.emplace_back(std::move(texture), std::move(data));
+        }
 
         // Set the first texture
-        // auto imageView = new ImageView(imageWindow, mImagesData[0].first.texture());
-        // mCurrentImage = 0;
-        // // Change the active textures.
-        // imgPanel->setCallback([this, imageView](int i) {
-        //     imageView->bindImage(mImagesData[i].first.texture());
-        //     mCurrentImage = i;
-        //     cout << "Selected item " << i << '\n';
-        // });
-        // imageView->setGridThreshold(20);
-        // imageView->setPixelInfoThreshold(20);
-        // imageView->setPixelInfoCallback(
-        //     [this, imageView](const Vector2i& index) -> pair<string, Color> {
-        //     auto& imageData = mImagesData[mCurrentImage].second;
-        //     auto& textureSize = imageView->imageSize();
-        //     string stringData;
-        //     uint16_t channelSum = 0;
-        //     for (int i = 0; i != 4; ++i) {
-        //         auto& channelData = imageData[4*index.y()*textureSize.x() + 4*index.x() + i];
-        //         channelSum += channelData;
-        //         stringData += (to_string(static_cast<int>(channelData)) + "\n");
-        //     }
-        //     float intensity = static_cast<float>(255 - (channelSum / 4)) / 255.0f;
-        //     float colorScale = intensity > 0.5f ? (intensity + 1) / 2 : intensity / 2;
-        //     Color textColor = Color(colorScale, 1.0f);
-        //     return { stringData, textColor };
-        // });
+        auto imageView = new ImageView(imageWindow, mImagesData[0].first.texture());
+        mCurrentImage = 0;
+        // Change the active textures.
+        imgPanel->setCallback([this, imageView](int i) {
+            imageView->bindImage(mImagesData[i].first.texture());
+            mCurrentImage = i;
+            cout << "Selected item " << i << '\n';
+        });
+        imageView->setGridThreshold(20);
+        imageView->setPixelInfoThreshold(20);
+        imageView->setPixelInfoCallback(
+            [this, imageView](const Vector2i& index) -> pair<string, Color> {
+            auto& imageData = mImagesData[mCurrentImage].second;
+            auto& textureSize = imageView->imageSize();
+            string stringData;
+            uint16_t channelSum = 0;
+            for (int i = 0; i != 4; ++i) {
+                auto& channelData = imageData[4*index.y()*textureSize.x() + 4*index.x() + i];
+                channelSum += channelData;
+                stringData += (to_string(static_cast<int>(channelData)) + "\n");
+            }
+            float intensity = static_cast<float>(255 - (channelSum / 4)) / 255.0f;
+            float colorScale = intensity > 0.5f ? (intensity + 1) / 2 : intensity / 2;
+            Color textColor = Color(colorScale, 1.0f);
+            return { stringData, textColor };
+        });
 
         new Label(window, "File dialog", "sans-bold");
         tools = new Widget(window);
