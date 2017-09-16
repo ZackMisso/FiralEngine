@@ -27,6 +27,9 @@
 
 // FIRAL_NAMESPACE_END
 
+
+// EXAMPLE PROGRAM FROM NANOGUI
+
 /*
     src/example1.cpp -- C++ version of an example application that shows
     how to use the various widget classes. For a Python implementation, see
