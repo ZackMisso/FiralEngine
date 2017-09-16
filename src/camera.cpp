@@ -2,11 +2,11 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-Camera::Camera(Eigen::Vector2i size) {
+Camera::Camera(Vec2i size) {
     NOTIMP
 }
 
-const Eigen::Vector2i& Camera::getImageSize() const {
+const Vec2i& Camera::getImageSize() const {
     return imageSize;
 }
 

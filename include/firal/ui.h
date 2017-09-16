@@ -13,7 +13,6 @@ this class
 
 // NanoGui includes
 #include <nanogui/screen.h>
-#include <Eigen/Core>
 
 // Misc includes
 #include <string.h>
@@ -27,8 +26,8 @@ public:
     UI(int w, int h, std::string title);
 
     // nonogui default initialization constructors
-    UI(Eigen::Vector2i size);
-    UI(Eigen::Vector2i size, std::string title);
+    UI(Vec2i size);
+    UI(Vec2i size, std::string title);
     ~UI();
 
     // screen methods
@@ -37,11 +36,11 @@ public:
     virtual void dropEvent();
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers);
     virtual bool keyboardCharacterEvent(unsigned int codepoint);
-    virtual bool resizeEvent(const Eigen::Vector2i& size);
+    virtual bool resizeEvent(const Vec2i& size);
 
 private:
-    int width;
-    int height;
+    // int width;
+    // int height;
 };
 
 FIRAL_NAMESPACE_END

@@ -10,11 +10,11 @@ UI::UI(int w, int h, std::string title) : nanogui::Screen() {
     NOTIMP
 }
 
-UI::UI(Eigen::Vector2i size) : nanogui::Screen(size, "Firal Engine Test") {
+UI::UI(Vec2i size) : nanogui::Screen(size, "Firal Engine Test") {
     NOTIMP
 }
 
-UI::UI(Eigen::Vector2i size, std::string title) : nanogui::Screen(size, title) {
+UI::UI(Vec2i size, std::string title) : nanogui::Screen(size, title) {
     NOTIMP
 }
 
@@ -44,7 +44,7 @@ bool UI::keyboardCharacterEvent(unsigned int codepoint) {
     return false;
 }
 
-bool UI::resizeEvent(const Eigen::Vector2i& size) {
+bool UI::resizeEvent(const Vec2i& size) {
     // empty for now
     return false;
 }
