@@ -57,11 +57,13 @@ add_executable(firal
     include/firal/common.h
     include/firal/bitmap.h
     include/firal/ui.h
+    include/firal/camera.h
 
     # Implementation files
     src/main.cpp
     src/bitmap.cpp
     src/ui.cpp
+    src/camera.cpp
 )
 
 # Lastly, additional libraries may have been built for you.  In addition to linking
