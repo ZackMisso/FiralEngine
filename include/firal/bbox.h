@@ -31,8 +31,8 @@ public:
     BBox3f merge(const BBox3f &other) const;
 
     // intersections
-    bool checkRay(const Ray3f &ray) const;
-    bool checkRay(const Ray3f &ray, float &nearT, float &farT) const;
+    bool rayIntersect(const Ray3f &ray) const;
+    bool rayIntersect(const Ray3f &ray, float &nearT, float &farT) const;
 
     // variables
     Vec3f min;

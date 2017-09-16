@@ -16,6 +16,8 @@
 #define INV_SQRT_TWO 0.70710678118654752440f
 
 typedef Eigen::Matrix<float,    Eigen::Dynamic, Eigen::Dynamic> MatXf;
+typedef Eigen::Matrix<uint32_t, Eigen::Dynamic, Eigen::Dynamic> MatXu;
+
 typedef Eigen::Matrix4f Mat4f;
 typedef Eigen::Vector3f Vec3f;
 typedef Eigen::Vector2f Vec2f;
