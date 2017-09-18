@@ -14,7 +14,7 @@ public:
     uint32_t getTriangleCount() const;
     uint32_t getVertexCount() const;
     const BBox3f getBBox() const;
-    BBox3f getBBox(uint32_t triIndex) const;
+    const BBox3f getBBox(uint32_t triIndex) const;
     const MatXf &getVertices() const;
     const MatXf &getVertNorms() const;
     const MatXf &getVertTexCoords() const;

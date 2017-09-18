@@ -1,6 +1,16 @@
 #pragma once
 
+#include <string.h>
+
 FIRAL_NAMESPACE_BEGIN
+
+enum ObjectType {
+    Object_Camera,
+    Object_Light,
+    Object_Static,
+    Object_Player,
+    Object_None
+};
 
 class SceneObject {
 public:
@@ -8,7 +18,7 @@ public:
     SceneObject(std::string name);
 protected:
     std::string name;
-    // Transform* transform;
+    ObjectType type;
 };
 
 FIRAL_NAMESPACE_END

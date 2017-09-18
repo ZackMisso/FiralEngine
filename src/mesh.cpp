@@ -23,7 +23,7 @@ const BBox3f Mesh::getBBox() const {
     return BBox3f();
 }
 
-BBox3f Mesh::getBBox(uint32_t triIndex) const {
+const BBox3f Mesh::getBBox(uint32_t triIndex) const {
     NOTIMP
     return BBox3f();
 }
