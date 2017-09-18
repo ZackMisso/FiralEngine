@@ -59,6 +59,18 @@ add_executable(firal
     include/firal/ui.h
     include/firal/camera.h
     include/firal/ray.h
+    include/firal/bbox.h
+    include/firal/inter.h
+    include/firal/mesh.h
+    include/firal/sceneobj.h
+    include/firal/transform.h
+    include/firal/debugui.h
+    include/firal/light.h
+
+    # Test header files
+    include/test/testcase.h
+    include/test/harness.h
+    include/test/bboxtest.h
 
     # Implementation files
     src/main.cpp
@@ -66,6 +78,17 @@ add_executable(firal
     src/ui.cpp
     src/camera.cpp
     src/ray.cpp
+    src/bbox.cpp
+    src/mesh.cpp
+    src/sceneobj.cpp
+    src/transform.cpp
+    src/debugui.cpp
+    src/light.cpp
+
+    # Test implementation files
+    test/bboxtest.cpp
+    test/harness.cpp
+    test/testcase.cpp
 )
 
 # Lastly, additional libraries may have been built for you.  In addition to linking

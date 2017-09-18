@@ -2,26 +2,19 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-BBox3f::BBox3f() {
-    NOTIMP
-}
+BBox3f::BBox3f() : min(Vec3f(0.f)), max(Vec3f(0.f)) { }
 
-BBox3f::BBox3f(Vec3f min, Vec3f max) {
-    NOTIMP
-}
+BBox3f::BBox3f(Vec3f min, Vec3f max) : min(min), max(max) { }
 
 bool BBox3f::operator==(const BBox3f &bbox) const {
-    NOTIMP
-    return false;
+    return (min == bbox.min && max == bbox.max);
 }
 
 bool BBox3f::operator!=(const BBox3f &bbox) const {
-    NOTIMP
-    return false;
+    return (min != bbox.min || max != bbox.max);
 }
 
 BBox3f BBox3f::operator+(const BBox3f &bbox) const {
-    NOTIMP
     return BBox3f();
 }
 

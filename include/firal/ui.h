@@ -30,14 +30,6 @@ public:
     UI(Vec2i size, std::string title);
     ~UI();
 
-    // screen methods
-    virtual void drawAll();
-    virtual void drawContents();
-    virtual void dropEvent();
-    virtual bool keyboardEvent(int key, int scancode, int action, int modifiers);
-    virtual bool keyboardCharacterEvent(unsigned int codepoint);
-    virtual bool resizeEvent(const Vec2i& size);
-
 private:
     // int width;
     // int height;
