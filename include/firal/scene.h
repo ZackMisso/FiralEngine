@@ -12,6 +12,8 @@ public:
 
     virtual void initialize(); // create and initialize scene
     virtual void load(); // load in needed resources
+
+    void renderOneFrame();
 private:
     void mainLoop(float dt);
     void updateLogic(float dt);

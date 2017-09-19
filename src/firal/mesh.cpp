@@ -55,4 +55,5 @@ bool Mesh::rayIntersect(uint32_t index, const Ray3f &ray, float &u, float &v, fl
 
 std::string Mesh::toString() const {
     NOTIMP
+    return "todo";
 }

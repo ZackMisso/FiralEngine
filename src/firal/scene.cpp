@@ -22,6 +22,10 @@ void Scene::mainLoop(float dt) {
     NOTIMP
 }
 
+void Scene::renderOneFrame() {
+    NOTIMP
+}
+
 void Scene::updatePhysics(float dt) {
     NOTIMP
 }

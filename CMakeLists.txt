@@ -53,7 +53,7 @@ include_directories(
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing -Wlto-type-mismatch")
 
 add_executable(firal
-    # Header files
+    # Firal engine header files
     include/firal/common.h
     include/firal/bitmap.h
     include/firal/ui.h
@@ -69,30 +69,42 @@ add_executable(firal
     include/firal/module.h
     include/firal/scene.h
 
-    # Test header files
+    # Unit test header files
     include/test/testcase.h
     include/test/harness.h
     include/test/bboxtest.h
 
-    # Implementation files
-    src/main.cpp
-    src/bitmap.cpp
-    src/ui.cpp
-    src/camera.cpp
-    src/ray.cpp
-    src/bbox.cpp
-    src/mesh.cpp
-    src/sceneobj.cpp
-    src/transform.cpp
-    src/debugui.cpp
-    src/light.cpp
-    src/module.cpp
-    src/scene.cpp
+    # Scene editor header files
+    include/edit/sceneeditor.h
 
-    # Test implementation files
-    test/bboxtest.cpp
-    test/harness.cpp
-    test/testcase.cpp
+    # Visual debugger header files
+    include/viz/rendvisual.h
+
+    # Firal engine implementation files
+    src/firal/main.cpp
+    src/firal/bitmap.cpp
+    src/firal/ui.cpp
+    src/firal/camera.cpp
+    src/firal/ray.cpp
+    src/firal/bbox.cpp
+    src/firal/mesh.cpp
+    src/firal/sceneobj.cpp
+    src/firal/transform.cpp
+    src/firal/debugui.cpp
+    src/firal/light.cpp
+    src/firal/module.cpp
+    src/firal/scene.cpp
+
+    # Unit test implementation files
+    src/test/bboxtest.cpp
+    src/test/harness.cpp
+    src/test/testcase.cpp
+
+    # Scene editor implementation files
+    src/edit/sceneeditor.cpp
+
+    # Visual debugger implementation files
+    src/viz/rendvisual.cpp
 )
 
 # Lastly, additional libraries may have been built for you.  In addition to linking
