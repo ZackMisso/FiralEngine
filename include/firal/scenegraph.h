@@ -20,9 +20,7 @@ public:
     void addObject(Transform* transform);
     void addObject(Transform* transform, Transform* parent);
 
-    void updateLogic(float dt);
-    void updatePhysics(float dt);
-    void render() const;
+    void render() const; // TODO :: scene graph design is bad for a raytracer
 
     void calculateInfo();
 

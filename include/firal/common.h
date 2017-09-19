@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdexcept>
+#include <iostream>
 #include <Eigen/Core>
 
 #define FIRAL_NAMESPACE_BEGIN namespace firal {

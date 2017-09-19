@@ -18,14 +18,6 @@ void SceneGraph::addObject(Transform* transform, Transform* parent) {
     NOTIMP
 }
 
-void SceneGraph::updateLogic(float dt) {
-    NOTIMP
-}
-
-void SceneGraph::updatePhysics(float dt) {
-    NOTIMP
-}
-
 void SceneGraph::render() const {
     NOTIMP
 }

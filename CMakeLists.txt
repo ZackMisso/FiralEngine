@@ -66,6 +66,8 @@ add_executable(firal
     include/firal/transform.h
     include/firal/debugui.h
     include/firal/light.h
+    include/firal/module.h
+    include/firal/scene.h
 
     # Test header files
     include/test/testcase.h
@@ -84,6 +86,8 @@ add_executable(firal
     src/transform.cpp
     src/debugui.cpp
     src/light.cpp
+    src/module.cpp
+    src/scene.cpp
 
     # Test implementation files
     test/bboxtest.cpp

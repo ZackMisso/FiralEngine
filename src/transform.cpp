@@ -18,52 +18,93 @@ Transform::Transform(const Transform* parent, Mat4f matrix) {
     NOTIMP
 }
 
-void Transform::addChild(Transform& transform) {
-    NOTIMP
+void Transform::addChild(Transform* transform) {
+    if (transform->parent != nullptr)
+        transform->parent->removeChild(transform);
+    transform->parent = this;
+    children.push_back(transform);
 }
 
 void Transform::removeChild(int index) {
+    auto& it = std::next(children.begin(), index);
+    std::swap(*it, children.back());
+    children.pop_back();
+}
+
+void Transform::removeChild(Transform* transform) {
+    auto& it = std::find(children.begin(), children.end(), transform);
+    std::swap(*it, children.back());
+    children.pop_back();
+}
+
+void Transform::addModule(Module* module) {
     NOTIMP
 }
 
-void Transform::removeChild(Transform& transform) {
+void Transform::removeModule(Module* module) {
+    auto& it = std::find(children.begin(), children.end(), transform);
+    std::swap(*it, children.back());
+    children.pop_back();
+}
+
+void Transform::removeModule(int index) {
+    auto& it = std::next(modules.begin(), index);
+    std::swap(*it, modules.back());
+    modules.pop_back();
+}
+
+void Transform::initializeModules() {
+    for (i = 0; i < modules.size(); i++)
+        modules[i]->initialize();
+}
+
+vector<Module*> Transform::getPhysicsModules() {
+    NOTIMP
+    return modules;
+}
+
+vector<Module*> Transform::getLogicModules() {
+    NOTIMP
+    return modules;
+}
+
+void Transform::translate(const Vec3f& transVec) {
     NOTIMP
 }
 
-void Transform::translate(Vec3f transVec) {
+void Transform::scale(const Vec3f& scaleVec) {
     NOTIMP
 }
 
-void Transform::scale(Vec3f scaleVec) {
+void Transform::rotate(float angle, const Vec3f& axis) {
     NOTIMP
 }
 
-void Transform::rotate(float angle, Vec3f axis) {
-    NOTIMP
-}
-
-Mat4f Transform::makeTransMatrix(Vec3f transVec) const {
+Mat4f Transform::makeTransMatrix(const Vec3f& transVec) const {
     NOTIMP
     return Mat4f();
 }
 
-Mat4f Transform::makeScaleMatrix(Vec3f scaleVec) const {
+Mat4f Transform::makeScaleMatrix(const Vec3f& scaleVec) const {
     NOTIMP
     return Mat4f();
 }
 
-Mat4f Transform::makeRotateMatrix(float angle, Vec3f axis) const {
+Mat4f Transform::makeRotateMatrix(float angle, const Vec3f& axis) const {
     NOTIMP
     return Mat4f();
 }
 
-void Transform::setSceneObject(SceneObject* sceneObject) {
-    NOTIMP
+void Transform::setSceneObject(SceneObject* so) {
+    sceneObject = so;
 }
 
-SceneObject* Transform::getSceneObject(sceneObject) {
-    NOTIMP
-    return nullptr;
+SceneObject* Transform::getSceneObject() {
+    return sceneObject;
+}
+
+const vector<Module*>& Transform::getModules() const {
+    return modules
 }
 
 const vector<Transform*>& Transform::getChildren() const {
