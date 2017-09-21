@@ -22,7 +22,7 @@ typedef Eigen::Matrix<uint32_t, Eigen::Dynamic, Eigen::Dynamic> MatXu;
 typedef Eigen::Matrix4f Mat4f;
 typedef Eigen::Vector3f Vec3f;
 typedef Eigen::Vector2f Vec2f;
-typedef Eigen::Vector2i Vwc2i;
+typedef Eigen::Vector2i Vec2i;
 
 #define NOTIMP throw new firal::NotImplemented();
 

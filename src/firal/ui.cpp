@@ -2,6 +2,10 @@
 
 FIRAL_NAMESPACE_BEGIN
 
+UI::UI() : nanogui::Screen() {
+    NOTIMP
+}
+
 UI::UI(int w, int h) : nanogui::Screen() {
     NOTIMP
 }

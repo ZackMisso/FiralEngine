@@ -1,5 +1,6 @@
 #pragma once
 
+#include <firal/common.h>
 #include <string.h>
 
 FIRAL_NAMESPACE_BEGIN

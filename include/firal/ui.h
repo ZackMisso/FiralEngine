@@ -22,6 +22,7 @@ FIRAL_NAMESPACE_BEGIN
 class UI : public nanogui::Screen {
 public:
     // custom initialization contructors
+    UI();
     UI(int w, int h);
     UI(int w, int h, std::string title);
 

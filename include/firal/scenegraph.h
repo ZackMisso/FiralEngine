@@ -1,7 +1,7 @@
 #include <firal/common.h>
 #include <firal/transform.h>
 #include <firal/camera.h>
-#include <vector.h>
+#include <vector>
 
 FIRAL_NAMESPACE_BEGIN
 
@@ -29,7 +29,7 @@ public:
     const SceneInformation& getSceneInfo() const;
     const Camera* getMainCamera() const;
 private:
-    vector<Transform*> sceneObjects;
+    std::vector<Transform*> sceneObjects;
     SceneInformation sceneInfo;
     Camera* mainCamera;
     bool dirty;

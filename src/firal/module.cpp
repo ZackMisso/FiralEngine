@@ -11,7 +11,13 @@ Module::~Module() {
 }
 
 RegList Module::registerNeeds() {
+    RegList list;
     NOTIMP
+    return list;
+}
+
+void Module::initialize() {
+    NOTIMP;
 }
 
 void Module::logicUpdate(float dt) {

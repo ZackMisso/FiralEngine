@@ -2,7 +2,7 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-BBox3f::BBox3f() : min(Vec3f(0.f)), max(Vec3f(0.f)) { }
+BBox3f::BBox3f() : min(Vec3f(0.f, 0.f, 0.f)), max(Vec3f(0.f, 0.f, 0.f)) { }
 
 BBox3f::BBox3f(Vec3f min, Vec3f max) : min(min), max(max) { }
 
@@ -33,17 +33,17 @@ Vec3f BBox3f::getCenter() const {
     return Vec3f();
 }
 
-bool BBox3f::isInside(const Vec3f pt, bool strict = false) const {
+bool BBox3f::isInside(const Vec3f pt, bool strict) const {
     NOTIMP
     return false;
 }
 
-bool BBox3f::isInside(const BBox3f pt, bool strict = false) const {
+bool BBox3f::isInside(const BBox3f pt, bool strict) const {
     NOTIMP
     return false;
 }
 
-bool BBox3f::overlaps(const BBox3f pt, bool strict = false) const {
+bool BBox3f::overlaps(const BBox3f pt, bool strict) const {
     NOTIMP
     return false;
 }

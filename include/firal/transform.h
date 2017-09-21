@@ -3,7 +3,8 @@
 #include <firal/common.h>
 #include <firal/mesh.h>
 #include <firal/module.h>
-#include <vector.h>
+#include <firal/sceneobj.h>
+#include <vector>
 
 FIRAL_NAMESPACE_BEGIN
 
@@ -25,8 +26,8 @@ public:
 
     // module methods
     void initializeModules();
-    vector<Module*> getPhysicsModules(); // TODO :: organize modules better
-    vector<Module*> getLogicModules();
+    std::vector<Module*> getPhysicsModules(); // TODO :: organize modules better
+    std::vector<Module*> getLogicModules();
 
     // geometric transformations
     void translate(const Vec3f& transVec);
@@ -40,14 +41,14 @@ public:
     // getter and setter methods
     void setSceneObject(SceneObject* so);
     SceneObject* getSceneObject();
-    const vector<Module*>& getModules() const;
-    const vector<Transform*>& getChildren() const;
+    const std::vector<Module*>& getModules() const;
+    const std::vector<Transform*>& getChildren() const;
 
     std::string toString() const;
 protected:
-    const Transform* parent;
-    vector<Transform*> children;
-    vector<Module*> modules;
+    Transform* parent;
+    std::vector<Transform*> children;
+    std::vector<Module*> modules;
     Mat4f localTransform;
     Mat4f globalTransform;
     SceneObject* sceneObject;

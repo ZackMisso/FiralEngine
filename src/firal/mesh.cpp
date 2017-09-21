@@ -1,5 +1,7 @@
 #include <firal/mesh.h>
 
+FIRAL_NAMESPACE_BEGIN
+
 Mesh::Mesh() {
     NOTIMP
 }
@@ -57,3 +59,5 @@ std::string Mesh::toString() const {
     NOTIMP
     return "todo";
 }
+
+FIRAL_NAMESPACE_END

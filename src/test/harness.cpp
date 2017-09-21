@@ -15,13 +15,15 @@ void TestHarness::initializeTests() {
 }
 
 // evaluates tests and stops at first failure
-void TestHarness::evaluateTests() {
+float TestHarness::evaluateTests() {
     NOTIMP
+    return 0.f;
 }
 
 // evaluates all tests without stopping at failures
-void TestHarness::evaluateAllTests() {
+float TestHarness::evaluateAllTests() {
     NOTIMP
+    return 0.f;
 }
 
 FIRAL_NAMESPACE_END

@@ -1,5 +1,7 @@
 #include <firal/debugui.h>
 
+FIRAL_NAMESPACE_BEGIN
+
 DebugUI::DebugUI(int w, int h) : UI() {
     NOTIMP
 }
@@ -46,3 +48,5 @@ bool DebugUI::resizeEvent(const Vec2i& size) {
     NOTIMP
     return false;
 }
+
+FIRAL_NAMESPACE_END

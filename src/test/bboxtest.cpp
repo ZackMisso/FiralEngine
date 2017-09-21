@@ -14,7 +14,7 @@ void BBoxTest::initializeTest() {
     NOTIMP
 }
 
-void BBoXTest::printTestInformation() const {
+void BBoxTest::printTestInformation() const {
     NOTIMP
 }
 

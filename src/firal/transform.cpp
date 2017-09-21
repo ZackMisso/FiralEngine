@@ -26,13 +26,13 @@ void Transform::addChild(Transform* transform) {
 }
 
 void Transform::removeChild(int index) {
-    auto& it = std::next(children.begin(), index);
+    auto it = std::next(children.begin(), index);
     std::swap(*it, children.back());
     children.pop_back();
 }
 
 void Transform::removeChild(Transform* transform) {
-    auto& it = std::find(children.begin(), children.end(), transform);
+    auto it = std::find(children.begin(), children.end(), transform);
     std::swap(*it, children.back());
     children.pop_back();
 }
@@ -42,28 +42,28 @@ void Transform::addModule(Module* module) {
 }
 
 void Transform::removeModule(Module* module) {
-    auto& it = std::find(children.begin(), children.end(), transform);
-    std::swap(*it, children.back());
-    children.pop_back();
+    auto it = std::find(modules.begin(), modules.end(), module);
+    std::swap(*it, modules.back());
+    modules.pop_back();
 }
 
 void Transform::removeModule(int index) {
-    auto& it = std::next(modules.begin(), index);
+    auto it = std::next(modules.begin(), index);
     std::swap(*it, modules.back());
     modules.pop_back();
 }
 
 void Transform::initializeModules() {
-    for (i = 0; i < modules.size(); i++)
+    for (int i = 0; i < modules.size(); i++)
         modules[i]->initialize();
 }
 
-vector<Module*> Transform::getPhysicsModules() {
+std::vector<Module*> Transform::getPhysicsModules() {
     NOTIMP
     return modules;
 }
 
-vector<Module*> Transform::getLogicModules() {
+std::vector<Module*> Transform::getLogicModules() {
     NOTIMP
     return modules;
 }
@@ -103,11 +103,11 @@ SceneObject* Transform::getSceneObject() {
     return sceneObject;
 }
 
-const vector<Module*>& Transform::getModules() const {
-    return modules
+const std::vector<Module*>& Transform::getModules() const {
+    return modules;
 }
 
-const vector<Transform*>& Transform::getChildren() const {
+const std::vector<Transform*>& Transform::getChildren() const {
     return children;
 }
 

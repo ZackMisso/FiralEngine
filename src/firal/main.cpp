@@ -15,7 +15,7 @@ int main(int argc, char* args[])
             data[i*16*3+j*3+2] = i*16+j;
         }
     }
-    writeBMP("test.bmp", 16, 16, data);
+    firal::writeBMP("test.bmp", 16, 16, data);
     delete[] data;
 
     // DebugUI* debugui = new DebugUI(500, 500);

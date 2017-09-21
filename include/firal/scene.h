@@ -5,6 +5,8 @@
 
 #include <firal/scenegraph.h>
 
+FIRAL_NAMESPACE_BEGIN
+
 class Scene {
 public:
     Scene();
@@ -21,4 +23,6 @@ private:
 protected:
     std::string name;
     SceneGraph* sceneGraph;
-}
+};
+
+FIRAL_NAMESPACE_END

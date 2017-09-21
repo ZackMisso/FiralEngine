@@ -1,4 +1,5 @@
 #include <test/testcase.h>
+#include <vector>
 
 FIRAL_NAMESPACE_BEGIN
 

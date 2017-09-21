@@ -3,6 +3,8 @@
 BMP_BITMAPFILEHEADER bmfh;
 BMP_BITMAPINFOHEADER bmih;
 
+FIRAL_NAMESPACE_BEGIN
+
 unsigned char* readBMP(const char* fileName,int& width,int& height) {
 	FILE* file;
 	BMP_DWORD pos;
@@ -118,3 +120,5 @@ void writeBMP(const char* fileName,int width,int height,unsigned char* data) {
 	delete[] scanline;
 	fclose(file);
 }
+
+FIRAL_NAMESPACE_END
