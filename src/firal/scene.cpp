@@ -3,19 +3,20 @@
 FIRAL_NAMESPACE_BEGIN
 
 Scene::Scene() {
-    NOTIMP
+    sceneGraph = new SceneGraph();
+    name = "no_name";
 }
 
 Scene::~Scene() {
-    NOTIMP
+    delete sceneGraph;
 }
 
 void Scene::initialize() {
-    NOTIMP
+    // does nothing for now
 }
 
 void Scene::load() {
-    NOTIMP
+    // does nothing for now
 }
 
 void Scene::mainLoop(float dt) {

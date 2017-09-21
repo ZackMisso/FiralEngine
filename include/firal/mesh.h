@@ -2,10 +2,11 @@
 
 #include <firal/common.h>
 #include <firal/bbox.h>
+#include <firal/sceneobj.h>
 
 FIRAL_NAMESPACE_BEGIN
 
-class Mesh {
+class Mesh : SceneObject {
 public:
     Mesh();
     ~Mesh();

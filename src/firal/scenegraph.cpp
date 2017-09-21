@@ -2,20 +2,32 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-SceneGraph::SceneGraph() {
-    NOTIMP
+SceneGraph::SceneGraph() : {
+    sceneObjects = std::vector<Transform*>();
+    sceneInfo.name = "this is probably not needed";
+    sceneInfo.numberTris = 1;
+    sceneInfo.numberObjs = 3;
+    sceneInfo.numberLights = 1;
+    mainCamera = nullptr;
+    dirty = false;
 }
 
 SceneGraph::~SceneGraph() {
-    NOTIMP
+    // camera should be stored in sceneObjects
+    mainCamera = nullptr;
+    while(sceneObjects.size() > 0)
+        delete sceneObjects.pop_back();
 }
 
 void SceneGraph::addObject(Transform* transform) {
-    NOTIMP
+    sceneObjects->push_back(transform);
 }
 
 void SceneGraph::addObject(Transform* transform, Transform* parent) {
-    NOTIMP
+    parent->addChild(transform);
+    if (transform->parent != nullptr)
+        transform->parent->removeChild(transform);
+    transform->parent = parent;
 }
 
 void SceneGraph::render() const {
@@ -27,7 +39,7 @@ void SceneGraph::calculateInfo() {
 }
 
 void SceneGraph::setMainCamera(Camera* camera) {
-    NOTIMP
+    mainCamera = camera;
 }
 
 const SceneInformation& getSceneInfo() { return sceneInfo; }

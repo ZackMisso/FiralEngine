@@ -68,11 +68,14 @@ add_executable(firal
     include/firal/light.h
     include/firal/module.h
     include/firal/scene.h
+    include/firal/pointlight.h
+    include/firal/orthocamera.h
 
     # Unit test header files
     include/test/testcase.h
     include/test/harness.h
     include/test/bboxtest.h
+    include/test/trianglescene.h
 
     # Scene editor header files
     include/edit/sceneeditor.h
@@ -94,11 +97,14 @@ add_executable(firal
     src/firal/light.cpp
     src/firal/module.cpp
     src/firal/scene.cpp
+    src/firal/pointlight.cpp
+    src/firal/orthocamera.cpp
 
     # Unit test implementation files
     src/test/bboxtest.cpp
     src/test/harness.cpp
     src/test/testcase.cpp
+    src/test/trianglescene.cpp
 
     # Scene editor implementation files
     src/edit/sceneeditor.cpp
