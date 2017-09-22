@@ -1,6 +1,40 @@
 cmake_minimum_required (VERSION 2.8.3)
 project(firal)
 
+if(APPLE)
+    set(CMAKE_MACOSX_RPATH ON)
+endif()
+
+include(CheckCXXCompilerFlag)
+include(CheckCXXSourceRuns)
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  # Quench annoying deprecation warnings when compiling GLFW on OSX
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-deprecated-declarations")
+endif()
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "^(GNU|Clang|Intel)$")
+  CHECK_CXX_COMPILER_FLAG("-std=c++14" HAS_CPP14_FLAG)
+  CHECK_CXX_COMPILER_FLAG("-std=c++11" HAS_CPP11_FLAG)
+
+  if (HAS_CPP14_FLAG)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+  elseif (HAS_CPP11_FLAG)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+  else()
+    message(FATAL_ERROR "Unsupported compiler -- pybind11 requires C++11 support!")
+  endif()
+endif()
+
+if (APPLE)
+  find_library(cocoa_library Cocoa)
+  find_library(opengl_library OpenGL)
+  find_library(corevideo_library CoreVideo)
+  find_library(iokit_library IOKit)
+  list(APPEND NANOGUI_EXTRA_LIBS ${cocoa_library} ${opengl_library} ${corevideo_library} ${iokit_library})
+  list(APPEND LIBNANOGUI_EXTRA_SOURCE src/darwin.mm)
+ endif()
+
 # Disable building extras we won't need (pure C++ project)
 set(NANOGUI_BUILD_EXAMPLE OFF CACHE BOOL " " FORCE)
 set(NANOGUI_BUILD_PYTHON  OFF CACHE BOOL " " FORCE)
@@ -50,7 +84,11 @@ include_directories(
     ext
 )
 
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing -Wlto-type-mismatch")
+if(APPLE)
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing")
+else()
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing -Wlto-type-mismatch")
+endif()
 
 add_executable(firal
     # Firal engine header files

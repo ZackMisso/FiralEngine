@@ -2,7 +2,7 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-PointLight::PointLight() : Light(), mesh(nullptr) { }
+PointLight::PointLight() : Light() { }
 
 PointLight::~PointLight() { }
 
