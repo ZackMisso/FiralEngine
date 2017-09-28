@@ -33,8 +33,8 @@ void TriangleScene::initializeTriangle() {
     MatXf triNorms;
 
     triMesh->setVerts(triVerts);
-    triMesh->setIndices(triIndicies);
-    triMesh->setNorms(triNorms);
+    triMesh->setIndices(triIndices);
+    triMesh->setVertNorms(triNorms);
 
     // link mesh to transform
     triTrans->setSceneObject(triMesh);
@@ -54,7 +54,7 @@ void TriangleScene::initializeLight() {
     lightTrans->setSceneObject(light);
 
     // add light to scene
-    sceneGraph->addChild(light);
+    sceneGraph->addChild(lightTrans);
 }
 
 void TriangleScene::initializeCamera() {

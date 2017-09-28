@@ -111,6 +111,14 @@ const std::vector<Transform*>& Transform::getChildren() const {
     return children;
 }
 
+Transform* Transform::getParent() const {
+    return parent;
+}
+
+void Transform::setParent(Transform* param) {
+    parent = param;
+}
+
 std::string Transform::toString() const {
     NOTIMP
     return "todo";

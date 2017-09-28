@@ -17,8 +17,8 @@ public:
     SceneGraph();
     ~SceneGraph();
 
-    void addObject(Transform* transform);
-    void addObject(Transform* transform, Transform* parent);
+    void addChild(Transform* transform);
+    void addChild(Transform* transform, Transform* parent);
 
     void render() const; // TODO :: scene graph design is bad for a raytracer
 

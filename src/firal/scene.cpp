@@ -8,7 +8,7 @@ Scene::Scene() {
 }
 
 Scene::~Scene() {
-    delete sceneGraph;
+    // delete sceneGraph;
 }
 
 void Scene::initialize() {

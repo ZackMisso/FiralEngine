@@ -43,6 +43,8 @@ public:
     SceneObject* getSceneObject();
     const std::vector<Module*>& getModules() const;
     const std::vector<Transform*>& getChildren() const;
+    Transform* getParent() const;
+    void setParent(Transform* param);
 
     std::string toString() const;
 protected:

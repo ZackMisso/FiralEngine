@@ -108,6 +108,7 @@ add_executable(firal
     include/firal/scene.h
     include/firal/pointlight.h
     include/firal/orthocamera.h
+    include/firal/scenegraph.h
 
     # Unit test header files
     include/test/testcase.h
@@ -137,6 +138,7 @@ add_executable(firal
     src/firal/scene.cpp
     src/firal/pointlight.cpp
     src/firal/orthocamera.cpp
+    src/firal/scenegraph.cpp
 
     # Unit test implementation files
     src/test/bboxtest.cpp
