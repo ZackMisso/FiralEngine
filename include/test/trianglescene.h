@@ -1,6 +1,18 @@
+#pragma once
+
 #include <firal/scene.h>
+#include <firal/shader.h>
 
 FIRAL_NAMESPACE_BEGIN
+
+class RedShader : public Shader {
+public:
+    RedShader();
+    ~RedShader();
+
+    virtual void initialize();
+    virtual Col4f color(RayInter &isect);
+};
 
 class TriangleScene : public Scene {
 public:
@@ -11,7 +23,6 @@ public:
     virtual void load();
 private:
     void initializeTriangle();
-    void initializeLight();
     void initializeCamera();
 };
 

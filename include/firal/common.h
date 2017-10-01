@@ -9,7 +9,7 @@
 
 #define Epsilon 1e-4f
 
-#define M_PI         3.14159265358979323846f
+#define PI           3.14159265358979323846f
 #define INV_PI       0.31830988618379067154f
 #define INV_TWOPI    0.15915494309189533577f
 #define INV_FOURPI   0.07957747154594766788f
@@ -23,6 +23,9 @@ typedef Eigen::Matrix4f Mat4f;
 typedef Eigen::Vector3f Vec3f;
 typedef Eigen::Vector2f Vec2f;
 typedef Eigen::Vector2i Vec2i;
+
+typedef Eigen::Vector3f Col3f;
+typedef Eigen::Vector4f Col4f;
 
 #define NOTIMP throw new firal::NotImplemented();
 

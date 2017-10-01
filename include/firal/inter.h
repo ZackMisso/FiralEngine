@@ -1,7 +1,7 @@
 #pragma once
 
 #include <firal/mesh.h>
-#include <vector.h>
+#include <vector>
 
 FIRAL_NAMESPACE_BEGIN
 
@@ -14,8 +14,8 @@ struct RayInter {
 };
 
 struct CollisionInter {
-    vector<Vec3f> ps;
-    vector<Vec3f> ns;
+    std::vector<Vec3f> ps;
+    std::vector<Vec3f> ns;
     const Mesh* meshOne;
     const Mesh* meshTwo;
 };

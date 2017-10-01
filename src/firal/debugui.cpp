@@ -2,50 +2,61 @@
 
 FIRAL_NAMESPACE_BEGIN
 
-DebugUI::DebugUI(int w, int h) : UI() {
-    NOTIMP
+DebugUI::DebugUI(int w, int h) : UI(w, h) {
+    initializeGUI();
+    std::cout << "Finished Creating DebugUI" << std::endl;
 }
 
-DebugUI::DebugUI(int w, int h, std::string title) : UI() {
-    NOTIMP
+DebugUI::DebugUI(int w, int h, std::string title) : UI(w, h, title) {
+    initializeGUI();
+    std::cout << "Finished Creating DebugUI" << std::endl;
 }
 
 DebugUI::DebugUI(Vec2i size) : UI(size) {
-    NOTIMP
+    initializeGUI();
+    std::cout << "Finished Creating DebugUI" << std::endl;
 }
 
 DebugUI::DebugUI(Vec2i size, std::string title) : UI(size, title) {
-    NOTIMP
+    initializeGUI();
+    std::cout << "Finished Creating DebugUI" << std::endl;
 }
 
 DebugUI::~DebugUI() {
-    NOTIMP
+    // currently does nothing
 }
 
-void DebugUI::drawAll() {
-    NOTIMP
+void DebugUI::initializeGUI() {
+    // add stuff later
+    performLayout();
+}
+
+void DebugUI::draw(NVGcontext* ctx) {
+    /* Draw the user interface */
+    Screen::draw(ctx);
 }
 
 void DebugUI::drawContents() {
-    NOTIMP
+    // TODO
+    // NOTIMP
 }
 
 void DebugUI::dropEvent() {
-    NOTIMP
+    std::cout << "Drop Events currently not supported" << std::endl;
 }
 
 bool DebugUI::keyboardEvent(int key, int scancode, int action, int modifiers) {
-    NOTIMP
+    std::cout << "Keyboard Events urrently not supported" << std::endl;
     return false;
 }
 
 bool DebugUI::keyboardCharacterEvent(unsigned int codepoint) {
-    NOTIMP
+    std::cout << "Keyboard Character Events urrently not supported" << std::endl;
     return false;
 }
 
 bool DebugUI::resizeEvent(const Vec2i& size) {
-    NOTIMP
+    std::cout << "Resize Event currently not supported" << std::endl;
     return false;
 }
 

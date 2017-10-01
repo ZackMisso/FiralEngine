@@ -85,9 +85,9 @@ include_directories(
 )
 
 if(APPLE)
-    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -Wno-terminate -fno-strict-aliasing")
 else()
-    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -fno-strict-aliasing -Wlto-type-mismatch")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -flto -Wno-unused-result -Wno-terminate -fno-strict-aliasing -Wlto-type-mismatch")
 endif()
 
 add_executable(firal
@@ -109,6 +109,7 @@ add_executable(firal
     include/firal/pointlight.h
     include/firal/orthocamera.h
     include/firal/scenegraph.h
+    include/firal/shader.h
 
     # Unit test header files
     include/test/testcase.h
@@ -139,6 +140,7 @@ add_executable(firal
     src/firal/pointlight.cpp
     src/firal/orthocamera.cpp
     src/firal/scenegraph.cpp
+    src/firal/shader.cpp
 
     # Unit test implementation files
     src/test/bboxtest.cpp

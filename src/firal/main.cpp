@@ -1,5 +1,6 @@
 #include <firal/bitmap.h>
 #include <firal/debugui.h>
+#include <test/trianglescene.h>
 
 int main(int argc, char* args[])
 {
@@ -18,13 +19,32 @@ int main(int argc, char* args[])
     firal::writeBMP("test.bmp", 16, 16, data);
     delete[] data;
 
-    // DebugUI* debugui = new DebugUI(500, 500);
-    // Scene* scene = new Scene();
-    //
-    // // do stuffs here
-    //
-    // delete scene;
+    std::cout << "Creating Triangle Scene" << std::endl;
+    firal::TriangleScene* scene = new firal::TriangleScene();
+
+    std::cout << "Creating Debug UI" << std::endl;
+    // firal::DebugUI* debugui = new firal::DebugUI(500, 500);
+    // debugui->setCurrentScene(scene);
+
+    try {
+        nanogui::init();
+        {
+            nanogui::ref<firal::DebugUI> app = new firal::DebugUI(500, 500);
+            app->setCurrentScene(scene);
+            app->drawAll();
+            app->setVisible(true);
+            nanogui::mainloop();
+        }
+        nanogui::shutdown();
+    } catch (const std::runtime_error &e) {
+        std::string error_msg = std::string("Caught a fatal error: ") + std::string(e.what());
+        std::cerr << error_msg << std::endl;
+        return -1;
+    }
+
+    std::cout << "Cleaning Up Allocated Memory" << std::endl;
     // delete debugui;
+    // if (scene) delete scene;
 
     return 0;
 }

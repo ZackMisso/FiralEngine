@@ -10,6 +10,7 @@ this class
 
 // Engine includes
 #include <firal/common.h>
+#include <firal/scene.h>
 
 // NanoGui includes
 #include <nanogui/screen.h>
@@ -31,7 +32,10 @@ public:
     UI(Vec2i size, std::string title);
     ~UI();
 
+    void setCurrentScene(Scene* param);
+
 private:
+    Scene* currentScene;
     // int width;
     // int height;
 };

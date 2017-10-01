@@ -8,6 +8,7 @@ FIRAL_NAMESPACE_BEGIN
 struct RegList {
     bool needsPhysics;
     bool needsLogic;
+    bool isShader;
 };
 
 class Module {

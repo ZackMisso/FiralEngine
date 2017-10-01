@@ -5,6 +5,7 @@
 FIRAL_NAMESPACE_BEGIN
 
 class DebugUI : public UI {
+public:
     // custom initialization contructors
     DebugUI(int w, int h);
     DebugUI(int w, int h, std::string title);
@@ -14,8 +15,10 @@ class DebugUI : public UI {
     DebugUI(Vec2i size, std::string title);
     ~DebugUI();
 
+    void initializeGUI();
+
     // screen methods
-    virtual void drawAll();
+    virtual void draw(NVGcontext *ctx);
     virtual void drawContents();
     virtual void dropEvent();
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers);
