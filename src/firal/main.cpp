@@ -23,8 +23,6 @@ int main(int argc, char* args[])
     firal::TriangleScene* scene = new firal::TriangleScene();
 
     std::cout << "Creating Debug UI" << std::endl;
-    // firal::DebugUI* debugui = new firal::DebugUI(500, 500);
-    // debugui->setCurrentScene(scene);
 
     try {
         nanogui::init();

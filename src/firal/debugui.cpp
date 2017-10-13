@@ -37,8 +37,7 @@ void DebugUI::draw(NVGcontext* ctx) {
 }
 
 void DebugUI::drawContents() {
-    // TODO
-    // NOTIMP
+    currentScene->renderOneFrame();
 }
 
 void DebugUI::dropEvent() {

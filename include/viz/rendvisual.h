@@ -2,7 +2,7 @@
 
 #include <firal/common.h>
 
-// this will be a debugger to help debug ray tracing errors
+// this will be a ray debugger to help debug ray tracing errors
 
 FIRAL_NAMESPACE_BEGIN
 

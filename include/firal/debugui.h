@@ -24,6 +24,8 @@ public:
     virtual bool keyboardEvent(int key, int scancode, int action, int modifiers);
     virtual bool keyboardCharacterEvent(unsigned int codepoint);
     virtual bool resizeEvent(const Vec2i& size);
+
+private:
 };
 
 FIRAL_NAMESPACE_END

@@ -1,0 +1,16 @@
+Here is a list of tasks to do in order of priority
+
+implement scene.renderOneFrame()
+implement perspective camera
+implement orthographic camera
+rethink how modules and transforms will function
+rethink how to separate scene transforms and geometric transformations
+get a system in place to replace the renderer with a rasterizer on command
+implement a rasterizer
+finish the first scene
+implement point light
+
+blah
+blah
+bla
+blablablalbalblablah
